@@ -22,8 +22,8 @@
     [super viewDidLoad];
 
     self.waterWave1.waveOffset = 0.5;
-    [self.waterWave0 wave];
-    [self.waterWave1 wave];
+    [self.waterWave0 waveStart];
+    [self.waterWave1 waveStart];
 }
 
 
