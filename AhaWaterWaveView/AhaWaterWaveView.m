@@ -88,7 +88,7 @@
     CGPathMoveToPoint(path, nil, 0, self.frame.size.height * .5);
     CGFloat y = 0.0f;
     for (float x = 0.0f; x <=  self.frame.size.width ; x++) {
-        y = self.waveAmplitude * sinf((360/self.frame.size.width) * (x * M_PI / 180) - _offsetX * M_PI / 180) + self.frame.size.height * .5;
+        y = self.waveAmplitude * cosf((360 / self.frame.size.width) * (x * M_PI / 180) - _offsetX * M_PI / 180) + self.frame.size.height * .5;
         CGPathAddLineToPoint(path, nil, x, y);
     }
     
