@@ -79,10 +79,6 @@
 - (void)getCurrentWave:(CADisplayLink *)displayLink {
     
     _offsetX += self.waveSpeed;
-    self.waveLayer.path = [self getgetCurrentWavePath];
-}
-
-- (CGPathRef)getgetCurrentWavePath {
     
     CGMutablePathRef path = CGPathCreateMutable();
     CGPathMoveToPoint(path, nil, 0, self.frame.size.height * .5);
@@ -95,8 +91,11 @@
     CGPathAddLineToPoint(path, nil, self.frame.size.width, self.frame.size.height);
     CGPathAddLineToPoint(path, nil, 0, self.frame.size.height);
     CGPathCloseSubpath(path);
+
     
-    return path;
+    self.waveLayer.path = path;
+    
+    CGPathRelease(path);
 }
 
 
