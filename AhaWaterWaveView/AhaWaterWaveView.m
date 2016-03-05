@@ -21,20 +21,20 @@
     CGFloat _offsetX;
 }
 
-- (void)_initWithFrame:(CGRect)frame {
-    
-    self.backgroundColor = [UIColor clearColor];
-    self.layer.masksToBounds  = YES;
-    
-    self.waveAmplitude = 6;
-    self.waveSpeed = 6;
-    self.waveColor = [UIColor colorWithRed:0.0 green:0.0 blue:1.0 alpha:0.3];
+
+- (id)init {
+    self = [super init];
+    if (!self) {
+        return nil;
+    }
+    [self config];
+    return self;
 }
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        [self _initWithFrame:frame];
+        [self config];
     }
     
     return self;
@@ -43,10 +43,20 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        [self _initWithFrame:self.frame];
+        [self config];
     }
     
     return self;
+}
+
+- (void)config {
+    
+    self.backgroundColor = [UIColor clearColor];
+    self.layer.masksToBounds  = YES;
+    
+    self.waveAmplitude = 6;
+    self.waveSpeed = 6;
+    self.waveColor = [UIColor colorWithRed:0.0 green:0.0 blue:1.0 alpha:0.3];
 }
 
 
